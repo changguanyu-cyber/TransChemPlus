@@ -1,4 +1,4 @@
-# ========== 依赖 ==========
+
 import torch
 import torch.nn.functional as F
 from torch import nn
@@ -59,7 +59,6 @@ except Exception:
         return out.index_add_(0, index, src)
 
 # -----------------------------
-# MyGCNConv
 # -----------------------------
 class TransChemGCNConv(nn.Module):
     def __init__(self, in_channels, out_channels, att_scale=1.0):
@@ -495,7 +494,6 @@ for epoch in range(1, num_epochs + 1):
         f"Train Loss={train_loss:.6f} | "
     )
 
-    # 保存最佳模型
     if val_mse < best_val:
         best_val = val_mse
         best_state = model.state_dict()
@@ -564,3 +562,4 @@ pred_df.to_csv(save_pred_csv, index=False)
 
 
 print("Predictions saved to:", save_pred_csv)
+
