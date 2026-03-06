@@ -2,7 +2,7 @@
 **Task Example**: 
 
 # Approach
-![contents](fig_main.pdf)
+![contents](./fig_main.pdf)
 
 
 # Datasets
