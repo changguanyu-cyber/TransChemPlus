@@ -16,7 +16,7 @@ import pandas as pd
 from sklearn.metrics import r2_score, mean_squared_error
 import torch
 import torch.nn.functional as F
-
+#
 def contrastive_loss(z_ae, z_as, tau=0.1):
     """
     z_ae : [M, d]
@@ -564,3 +564,4 @@ pred_df.to_csv(save_pred_csv, index=False)
 
 
 print("Predictions saved to:", save_pred_csv)
+
