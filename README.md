@@ -1,6 +1,7 @@
-# transchem+
-# Approach
+# TransChem+
+**Task Example**: 
 
+# Approach
 ![image](fig_main.png)
 
 
@@ -29,3 +30,7 @@ pandas == 3.0.1
 sklearn == 1.8.0
 rdkit == 2025.9.6
 ```
+# Training
+You can start training our model by using the following command:
+
+# Prediction
