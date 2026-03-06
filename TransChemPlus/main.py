@@ -494,8 +494,6 @@ for epoch in range(1, num_epochs + 1):
         f"Epoch {epoch:03d} | "
         f"Train Loss={train_loss:.6f} | "
     )
-
-    # 保存最佳模型
     if val_mse < best_val:
         best_val = val_mse
         best_state = model.state_dict()
@@ -564,3 +562,4 @@ pred_df.to_csv(save_pred_csv, index=False)
 
 
 print("Predictions saved to:", save_pred_csv)
+
