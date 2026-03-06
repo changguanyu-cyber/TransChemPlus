@@ -1,7 +1,7 @@
 # transchem+
 # Approach
 
-!(fig_main.png)
+![image](fig_main.png)
 
 
 # Datasets
