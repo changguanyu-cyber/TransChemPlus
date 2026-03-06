@@ -8,12 +8,19 @@ root/
 │ └── data/
 ```
 
-3. Extracting the `.npy` files.  Place all `.npy` files into the `root/` directory as follows:
+
+# Dependencies
+we recommend installing the following packages:
 
 ```
-root/
-├── extracted_data/
-│ └── aspirin_coord.npy/
-└── rmd17/
-└── diffusion/
-└── MG_interaction/
+python == 3.12
+torch == 2.10.0
+torchvision == 0.25.0
+torch-geometric == 2.7.0
+torch_scatter == 2.1.2
+numpy == 2.4.2
+tqdm == 4.67.3
+pandas == 3.0.1
+sklearn == 1.8.0
+rdkit == 2025.9.6
+```
