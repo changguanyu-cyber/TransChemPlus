@@ -55,9 +55,7 @@ def contrastive_loss(z_ae, z_as, tau=0.1):
     loss = 0.5 * (loss_ae + loss_as)
 
     return loss.mean()
-# -----------------------------
-# MyGCNConv
-# -----------------------------
+
 class TransChemGCNConv(nn.Module):
     def __init__(self, in_channels, out_channels, att_scale=1.0):
         super().__init__()
@@ -226,7 +224,6 @@ def load_smiles_and_targets(
     from rdkit import Chem
     from rdkit.Chem import AllChem
 
-    # ---------- 读取 CSV ----------
     df = pd.read_csv(csv_path)
     df = df.dropna(subset=[smiles_column, target_column]).reset_index(drop=True)
 
@@ -242,9 +239,9 @@ def load_smiles_and_targets(
         filtered_targets.append(tgt)
 
 
-    # ---------- Step 2: 计算 charge 并池化 ----------
-    padded_charge_vectors = []     # 每原子 padded vector
-    pooled_charge_targets = []     # 分子级自监督伪标签
+
+    padded_charge_vectors = []    
+    pooled_charge_targets = []    
 
     for raw_smi in filtered_smiles:
 
@@ -269,8 +266,8 @@ def load_smiles_and_targets(
             charge_tensor = torch.zeros(mol.GetNumAtoms(), dtype=torch.float)
 
 
-        # --------  分子级池化生成自监督标签  --------
-        charge_pool = charge_tensor.mean().item()  # 可换成 max / sum / abs().mean()
+
+        charge_pool = charge_tensor.mean().item() 
         pooled_charge_targets.append(charge_pool)
 
     return (
@@ -290,7 +287,7 @@ from torch.utils.data import Dataset
 
 class SMILESDataset(Dataset):
     def __init__(self, smiles_list, targets=None):
-        self.nan_count = 0  # 统计删除数量
+        self.nan_count = 0  
 
         if targets is not None:
             clean_smiles = []
@@ -301,7 +298,7 @@ class SMILESDataset(Dataset):
 
                 if torch.isnan(y_tensor).any():
                     self.nan_count += 1
-                    continue  # 略过此样本
+                    continue  
 
                 clean_smiles.append(s)
                 clean_targets.append(y)
@@ -424,7 +421,7 @@ for epoch in range(1, 11):
     if val_mse < best_val:
         best_val = val_mse
         best_state = model.state_dict()
-        torch.save(best_state, save_path)   # 保存最佳模型
+        torch.save(best_state, save_path)   
 
     print(f"Epoch {epoch:03d} | Train Loss={train_loss:.4f} | Val MSE={val_mse:.4f}")
 # ---------- Load Best Model ----------
@@ -445,3 +442,4 @@ print("====== Final Performance (Best Model) ======")
 print("Test MSE:", test_mse)
 
 print("Test R2 :", r2)
+
