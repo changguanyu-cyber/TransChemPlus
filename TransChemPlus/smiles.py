@@ -29,5 +29,3 @@ out_df = pd.DataFrame({
 
 output_path = os.path.join(output_dir, output_csv)
 out_df.to_csv(output_path, index=False)
-
-print(f"已生成文件: {output_path}")
