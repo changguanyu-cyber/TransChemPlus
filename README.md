@@ -51,7 +51,7 @@ cd TransChemPlus
 python main.py
 ```
 # Prediction
-You can start training our model by using the following command:
+You can predict by using the following command:
 ```
 cd TransChemPlus
 python prediction.py
