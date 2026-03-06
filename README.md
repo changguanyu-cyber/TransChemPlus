@@ -6,7 +6,7 @@
 
 
 # Datasets
-2. The datasets used in the experiments are located in the following folder path:
+The datasets used in the experiments are located in the following folder path:
 
 ```
 TransChemPlus/
@@ -29,8 +29,27 @@ pandas == 3.0.1
 sklearn == 1.8.0
 rdkit == 2025.9.6
 ```
-# Training
-Before training, you need to set the dataset file path `csv_path` correctly.
-You can start training our model by using the following command:
 
+# hyperparameter settings
+The hyperparameter settings can be found in `TransChemPlus/hyperparameter.txt`.
+
+# Pretraining
+Before pretraining, you need to set the dataset file path `csv_path` and the path where the pretrained model parameters will be saved `save_path`.
+You can start training our model by using the following command:
+```
+cd TransChemPlus
+python pretrain.py
+```
+# Training
+Besides the dataset and saved model paths, you also need to set the path to the pretrained model for loading.
+You can start training our model by using the following command:
+```
+cd TransChemPlus
+python main.py
+```
 # Prediction
+You can start training our model by using the following command:
+```
+cd TransChemPlus
+python prediction.py
+```
