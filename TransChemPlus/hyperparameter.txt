@@ -20,5 +20,6 @@ embedding_dim: 512
 Input Data:
 input atom_features: 25
 train_ratio: 0.72
-test_ratio: 0.08
-val_ratio: 0.20
+test_ratio: 0.20
+val_ratio: 0.08
+
